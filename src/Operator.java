@@ -73,7 +73,7 @@ public class Operator extends JFrame {
 	Operator() {
 		// 홈패널 구성
 		setTitle("날씨예보프로그램");
-		System.out.println("test");
+		System.out.println("test2");
 		setBounds(100, 100, 400, 400);
 
 		homeP.setBorder(new EmptyBorder(5, 5, 5, 5));
