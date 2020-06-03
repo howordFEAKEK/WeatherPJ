@@ -21,20 +21,20 @@ public class PublicDateGetter {
 																															 * Key
 																															 */
 		urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "="
-				+ URLEncoder.encode("10", "UTF-8")); /* ÇÑ ÆäÀÌÁö °á°ú ¼ö */
+				+ URLEncoder.encode("10", "UTF-8")); /* í•œ íŽ˜ì´ì§€ ê²°ê³¼ ìˆ˜ */
 		urlBuilder.append(
-				"&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /* ÆäÀÌÁö ¹øÈ£ */
+				"&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /* íŽ˜ì´ì§€ ë²ˆí˜¸ */
 		urlBuilder.append("&" + URLEncoder.encode("sidoName", "UTF-8") + "=" + URLEncoder.encode(place,
-				"UTF-8")); /* ½Ãµµ ÀÌ¸§ (¼­¿ï, ºÎ»ê, ´ë±¸, ÀÎÃµ, ±¤ÁÖ, ´ëÀü, ¿ï»ê, °æ±â, °­¿ø, ÃæºÏ, Ãæ³², ÀüºÏ, Àü³², °æºÏ, °æ³², Á¦ÁÖ, ¼¼Á¾) */
+				"UTF-8")); /* ì‹œë„ ì´ë¦„ (ì„œìš¸, ë¶€ì‚°, ëŒ€êµ¬, ì¸ì²œ, ê´‘ì£¼, ëŒ€ì „, ìš¸ì‚°, ê²½ê¸°, ê°•ì›, ì¶©ë¶, ì¶©ë‚¨, ì „ë¶, ì „ë‚¨, ê²½ë¶, ê²½ë‚¨, ì œì£¼, ì„¸ì¢…) */
 		urlBuilder.append("&" + URLEncoder.encode("ver", "UTF-8") + "="
-				+ URLEncoder.encode("1.3", "UTF-8")); /* ¹öÀüº° »ó¼¼ °á°ú Âü°í¹®¼­ ÂüÁ¶ */
+				+ URLEncoder.encode("1.3", "UTF-8")); /* ë²„ì „ë³„ ìƒì„¸ ê²°ê³¼ ì°¸ê³ ë¬¸ì„œ ì°¸ì¡° */
 		URL url = new URL(urlBuilder.toString());
 		String val;
 
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setRequestMethod("GET");
 		conn.setRequestProperty("Content-type", "application/json");
-		//System.out.println("Response code: " + conn.getResponseCode());
+		// System.out.println("Response code: " + conn.getResponseCode());
 		BufferedReader rd;
 		if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
 			rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -63,18 +63,18 @@ public class PublicDateGetter {
 																															 * Key
 																															 */
 		urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "="
-				+ URLEncoder.encode("10", "UTF-8")); /* ÇÑ ÆäÀÌÁö °á°ú ¼ö */
+				+ URLEncoder.encode("10", "UTF-8")); /* í•œ íŽ˜ì´ì§€ ê²°ê³¼ ìˆ˜ */
 		urlBuilder.append(
-				"&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /* ÆäÀÌÁö ¹øÈ£ */
+				"&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /* íŽ˜ì´ì§€ ë²ˆí˜¸ */
 		urlBuilder.append("&" + URLEncoder.encode("sidoName", "UTF-8") + "=" + URLEncoder.encode(place,
-				"UTF-8")); /* ½Ãµµ ÀÌ¸§ (¼­¿ï, ºÎ»ê, ´ë±¸, ÀÎÃµ, ±¤ÁÖ, ´ëÀü, ¿ï»ê, °æ±â, °­¿ø, ÃæºÏ, Ãæ³², ÀüºÏ, Àü³², °æºÏ, °æ³², Á¦ÁÖ, ¼¼Á¾) */
+				"UTF-8")); /* ì‹œë„ ì´ë¦„ (ì„œìš¸, ë¶€ì‚°, ëŒ€êµ¬, ì¸ì²œ, ê´‘ì£¼, ëŒ€ì „, ìš¸ì‚°, ê²½ê¸°, ê°•ì›, ì¶©ë¶, ì¶©ë‚¨, ì „ë¶, ì „ë‚¨, ê²½ë¶, ê²½ë‚¨, ì œì£¼, ì„¸ì¢…) */
 		urlBuilder.append("&" + URLEncoder.encode("ver", "UTF-8") + "="
-				+ URLEncoder.encode("1.3", "UTF-8")); /* ¹öÀüº° »ó¼¼ °á°ú Âü°í¹®¼­ ÂüÁ¶ */
+				+ URLEncoder.encode("1.3", "UTF-8")); /* ë²„ì „ë³„ ìƒì„¸ ê²°ê³¼ ì°¸ê³ ë¬¸ì„œ ì°¸ì¡° */
 		URL url = new URL(urlBuilder.toString());
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setRequestMethod("GET");
 		conn.setRequestProperty("Content-type", "application/json");
-		//System.out.println("Response code: " + conn.getResponseCode());
+		// System.out.println("Response code: " + conn.getResponseCode());
 		BufferedReader rd;
 		if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
 			rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -92,4 +92,54 @@ public class PublicDateGetter {
 		return val;
 	}
 
+	String weathergetter(String place) throws IOException {
+		cutter c = new cutter();
+		StringBuilder urlBuilder = new StringBuilder(
+				"http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=108"); /* URL */
+		String val;
+
+		// urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") +
+		// "=LgRgbunXMOlZA23p%2B3W9rS6oLCPvoFIt%2FIFz1k4lLvYZPSmOjf6WgbER6%2Be2gybE73XKzeGgaaveKiSn1SlykA%3D%3D");
+		// /*Service Key*/
+		// urlBuilder.append("&" + URLEncoder.encode("ServiceKey","UTF-8") + "=" +
+		// URLEncoder.encode("-", "UTF-8")); /*ê³µê³µë°ì´í„°í¬í„¸ì—ì„œ ë°›ì€ ì¸ì¦í‚¤*/
+		// urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" +
+		// URLEncoder.encode("1", "UTF-8")); /*íŽ˜ì´ì§€ë²ˆí˜¸*/
+		// urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" +
+		// URLEncoder.encode("10", "UTF-8")); /*í•œ íŽ˜ì´ì§€ ê²°ê³¼ ìˆ˜*/
+		// urlBuilder.append("&" + URLEncoder.encode("dataType","UTF-8") + "=" +
+		// URLEncoder.encode("XML", "UTF-8")); /*ìš”ì²­ìžë£Œí˜•ì‹(XML/JSON)Default: XML*/
+		// urlBuilder.append("&" + URLEncoder.encode("base_date","UTF-8") + "=" +
+		// URLEncoder.encode("20200601", "UTF-8")); /*15ë…„ 12ì›” 1ì¼ ë°œí‘œ*/
+		// urlBuilder.append("&" + URLEncoder.encode("base_time","UTF-8") + "=" +
+		// URLEncoder.encode("0600", "UTF-8")); /*06ì‹œ ë°œí‘œ(ì •ì‹œë‹¨ìœ„)*/
+		urlBuilder.append(
+				"&" + URLEncoder.encode("nx", "UTF-8") + "=" + URLEncoder.encode("27", "UTF-8")); /* ì˜ˆë³´ì§€ì ì˜ X ì¢Œí‘œê°’ */
+		urlBuilder.append(
+				"&" + URLEncoder.encode("ny", "UTF-8") + "=" + URLEncoder.encode("127", "UTF-8")); /* ì˜ˆë³´ì§€ì  Y ì¢Œí‘œ */
+
+		URL url = new URL(urlBuilder.toString());
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		conn.setRequestMethod("GET");
+		conn.setRequestProperty("Content-type", "application/json");
+		System.out.println("Response code: " + conn.getResponseCode());
+
+		BufferedReader rd;
+
+		if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+			rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+		} else {
+			rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+		}
+		StringBuilder sb = new StringBuilder();
+		String line;
+		while ((line = rd.readLine()) != null) {
+			sb.append(line);
+		}
+		rd.close();
+		conn.disconnect();
+		// System.out.println(sb.toString());
+		val = c.infocutter(sb.toString());
+		return val;
+	}
 }
