@@ -1,3 +1,4 @@
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
@@ -45,12 +46,13 @@ public class Operator extends JFrame {
 	//
 
 	// 일기예보 패널 구성요소
+	String WC;
 	JLabel Wlabel = new JLabel("Temperature forecast");
 	JPanel WP = new JPanel();
 	JButton WButton2 = new JButton(new ImageIcon("./home.jpg"));
 	JButton WButton1 = new JButton(new ImageIcon("./!.jpg"));
 	JLabel WImg = new JLabel("Wimg");
-	JLabel WCont = new JLabel("Wcont");
+	JLabel WCont = new JLabel("");
 
 	// Change color 패널 구성
 	JPanel CP = new JPanel();
@@ -67,14 +69,14 @@ public class Operator extends JFrame {
 
 	// 그 외의 코드 실행에 필요한 값들
 	String aVal = "서울";
-
+	String tV;
 	//
 	Operator() {
 		// 홈패널 구성
 		setTitle("날씨예보프로그램");
 		System.out.println("test");
 		setBounds(100, 100, 400, 400);
-	
+
 		homeP.setBorder(new EmptyBorder(5, 5, 5, 5));
 		homeP.setLayout(null);
 
@@ -92,7 +94,7 @@ public class Operator extends JFrame {
 
 		homeP.add(SiTf);
 		SiTf.setColumns(10);
-		// SiTf.setBounds(208, 289, 124, 32);
+		SiTf.setBounds(50, 260, 124, 32);
 
 		homeP.add(DongTf);
 		DongTf.setColumns(10);
@@ -282,6 +284,19 @@ public class Operator extends JFrame {
 				//
 			}
 			if (e.getSource() == WB) { // 일기예보 버튼 눌렀을때
+				
+				tV=SiTf.getText();
+				ImageIcon img = new ImageIcon();
+
+				WC = "<html>현재 지역 : " + p.weatherloca(tV) + "<br>현재 날씨 : " + p.weatherinfo(tV) + "<br>현재 기온 : "
+						+ p.weathertemp(tV)+"도<html>";
+
+				WCont = new JLabel(WC);
+
+				WCont.setBounds(190, 167, 170, 170);
+				WCont.setHorizontalAlignment(SwingConstants.CENTER);
+				WP.add(WCont);
+
 				setContentPane(WP);
 				setVisible(true);
 
@@ -317,7 +332,7 @@ public class Operator extends JFrame {
 			}
 			if (e.getSource() == WButton1) { // 뒤로가기 눌렀을때
 				try {
-					JOptionPane.showMessageDialog(null,"<html>"+ p.weathergetter(null)+"<html>");
+					JOptionPane.showMessageDialog(null, "<html>" + p.weathergetter(null) + "<html>");
 				} catch (HeadlessException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
