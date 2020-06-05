@@ -133,7 +133,7 @@ public class PublicDateGetter {
 		conn.disconnect();
 		// System.out.println(sb.toString());
 		val = c.infocutter(sb.toString());
-		System.out.println(val);
+		System.out.println("tets");
 		return val;
 	}
 

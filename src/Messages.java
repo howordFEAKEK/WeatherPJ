@@ -20,22 +20,22 @@ public class Messages {
 
 		return me;
 	}
-	String pm10img(String val) {
+	/*String pm10img(String val) {
 		System.out.println("img--------"+val+"/");
 		switch (val) {
 		case "1":
-			me = "./good.jpg";break; //추후에 멀티리스터 if 문에 들어감
+			me = getClass().getClassLoader().getResource("good.jpg");break; //추후에 멀티리스터 if 문에 들어감
 		
 		case "2":
-			me = "./soso.jpg";break; //추후에 멀티리스터 if 문에 들어감;break;
+			me = getClass().getClassLoader().getResource("soso.jpg");break; //추후에 멀티리스터 if 문에 들어감;break;
 		case "3":
-			me = "./bad.jpg";break; //추후에 멀티리스터 if 문에 들어감;break;
+			me = getClass().getClassLoader().getResource("bad.jpg");break; //추후에 멀티리스터 if 문에 들어감;break;
 		case "4":
-			me = "./uu.jpg";break; //추후에 멀티리스터 if 문에 들어감;break;
+			me = getClass().getClassLoader().getResource("uu.jpg");break; //추후에 멀티리스터 if 문에 들어감;break;
 		default:
 			me="error";break;
 
 		}
 		return me;
-	}
+	}*/
 }

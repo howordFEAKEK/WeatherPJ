@@ -35,22 +35,22 @@ public class Operator extends JFrame {
 	JPanel DP = new JPanel();
 	JLabel DPLb = new JLabel("Fine Dust Forecast");
 
-	ImageIcon img = new ImageIcon("./image.jpg"); // 추후에 멀티리스터 if 문에 들어감
+	ImageIcon img = new ImageIcon("bin/image.jpg"); // 추후에 멀티리스터 if 문에 들어감
 	JLabel DImage = new JLabel(img);
 
 	String DC;
 	JLabel DContent = new JLabel(DC);
-	JButton DButton1 = new JButton(new ImageIcon("./!.jpg"));
+	JButton DButton1 = new JButton(new ImageIcon(getClass().getClassLoader().getResource("!.jpg")));
 	JButton DButton2 = new JButton("new");
-	JButton DButton3 = new JButton(new ImageIcon("./home.jpg"));
+	JButton DButton3 = new JButton(new ImageIcon(getClass().getClassLoader().getResource("home.jpg")));
 	//
 
 	// 일기예보 패널 구성요소
 	String WC;
 	JLabel Wlabel = new JLabel("Temperature forecast");
 	JPanel WP = new JPanel();
-	JButton WButton2 = new JButton(new ImageIcon("./home.jpg"));
-	JButton WButton1 = new JButton(new ImageIcon("./!.jpg"));
+	JButton WButton2 = new JButton(new ImageIcon(getClass().getClassLoader().getResource("home.jpg")));
+	JButton WButton1 = new JButton(new ImageIcon(getClass().getClassLoader().getResource("!.jpg")));
 	JLabel WImg = new JLabel("Wimg");
 	JLabel WCont = new JLabel("");
 
@@ -63,13 +63,14 @@ public class Operator extends JFrame {
 	JButton Color4 = new JButton("PINK");
 	JButton Color5 = new JButton("CYAN");
 	JButton Color6 = new JButton("GRAY");
-	JButton Chome = new JButton(new ImageIcon("./home.jpg"));
+	JButton Chome = new JButton(new ImageIcon(getClass().getClassLoader().getResource("home.jpg")));
 
 	//
 
 	// 그 외의 코드 실행에 필요한 값들
 	String aVal = "서울";
 	String tV;
+
 	//
 	Operator() {
 		// 홈패널 구성
@@ -242,17 +243,30 @@ public class Operator extends JFrame {
 				setContentPane(DP);
 
 				try {
-					m.pm10img(p.pm10getter(aVal));
-				} catch (IOException e1) {
+					switch (p.pm10getter(aVal)) {
+					case "1":
+						img = new ImageIcon(getClass().getClassLoader().getResource("good.jpg"));
+						break;
+
+					case "2":
+						img = new ImageIcon(getClass().getClassLoader().getResource("soso.jpg"));
+						break;
+					case "3":
+						img = new ImageIcon(getClass().getClassLoader().getResource("bad.jpg"));
+						break;
+					case "4":
+						img = new ImageIcon(getClass().getClassLoader().getResource("uu.jpg"));
+						break;
+					default:
+						System.out.println("error testdfadsfa : " + aVal);
+						break;
+
+					}
+				} catch (IOException e2) {
 					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					e2.printStackTrace();
 				}
 
-				try {
-					img = new ImageIcon(m.pm10img(p.pm10getter(aVal)));
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
 				DImage = new JLabel(img);
 
 				DImage.setBounds(10, 180, 170, 170);
@@ -266,7 +280,7 @@ public class Operator extends JFrame {
 					e1.printStackTrace();
 				}
 				try {
-					System.out.println("img val : " + m.pm10img(p.pm10getter(aVal)));
+					// System.out.println("img val : " + m.pm10img(p.pm10getter(aVal)));
 					if (m.pm10me(p.pm10getter(aVal)) == "error") {
 						JOptionPane.showMessageDialog(DP, "해당지역의 정보는 현재 조회되지 않습니다.");
 
@@ -284,12 +298,12 @@ public class Operator extends JFrame {
 				//
 			}
 			if (e.getSource() == WB) { // 일기예보 버튼 눌렀을때
-				
-				tV=SiTf.getText();
+
+				tV = SiTf.getText();
 				ImageIcon img = new ImageIcon();
 
 				WC = "<html>현재 지역 : " + p.weatherloca(tV) + "<br>현재 날씨 : " + p.weatherinfo(tV) + "<br>현재 기온 : "
-						+ p.weathertemp(tV)+"도<html>";
+						+ p.weathertemp(tV) + "도<html>";
 
 				WCont = new JLabel(WC);
 
@@ -315,18 +329,18 @@ public class Operator extends JFrame {
 				setVisible(true);
 			}
 			if (e.getSource() == DButton1) { // ! 버튼을 눌렀을 때
-				
-					try {
-						JOptionPane.showMessageDialog(null,"<html>"+ p.weathergetter(null)+"<html>");
-					} catch (HeadlessException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-					setVisible(true);
-				
+
+				try {
+					JOptionPane.showMessageDialog(null, "<html>" + p.weathergetter(null) + "<html>");
+				} catch (HeadlessException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				setVisible(true);
+
 			}
 			if (e.getSource() == Chome) { // 홈으로 가기 눌렀을 때
 
@@ -350,7 +364,7 @@ public class Operator extends JFrame {
 				WCont.setText("");
 				//
 
-				//DImage.setIcon(null);
+				// DImage.setIcon(null);
 
 				setContentPane(homeP);
 
