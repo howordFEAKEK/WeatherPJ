@@ -315,14 +315,18 @@ public class Operator extends JFrame {
 				setVisible(true);
 			}
 			if (e.getSource() == DButton1) { // ! 버튼을 눌렀을 때
-				DContent.setText("");
-				//
-
-				DImage.setIcon(null);
-
-				setContentPane(homeP);
-
-				setVisible(true);
+				
+					try {
+						JOptionPane.showMessageDialog(null,"<html>"+ p.weathergetter(null)+"<html>");
+					} catch (HeadlessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					setVisible(true);
+				
 			}
 			if (e.getSource() == Chome) { // 홈으로 가기 눌렀을 때
 
@@ -343,7 +347,13 @@ public class Operator extends JFrame {
 				setVisible(true);
 			}
 			if (e.getSource() == WButton2) { // 뒤로가기 눌렀을때
+				WCont.setText("");
+				//
+
+				//DImage.setIcon(null);
+
 				setContentPane(homeP);
+
 				setVisible(true);
 			}
 			if (e.getSource().equals(DoCB)) {

@@ -268,7 +268,7 @@ public class PublicDateGetter {
 	}
 
 	double weathertemp(String loca) {
-		double val = 0;
+		double val = 00.00;
 		try {
 			// 서울시청의 위도와 경도
 			String urlstr = "http://api.openweathermap.org/data/2.5/weather?" + "q=" + loca
