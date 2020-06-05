@@ -114,7 +114,10 @@ public class PublicDateGetter {
 		conn.setRequestProperty("Content-type", "application/json");
 		System.out.println("Response code: " + conn.getResponseCode());
 
-		BufferedReader rd;
+		BufferedReader rd = new BufferedReader(
+				new InputStreamReader(conn.getInputStream(), "utf-8"));
+
+
 
 		if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
 			rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));

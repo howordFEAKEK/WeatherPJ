@@ -61,7 +61,7 @@ public class Operator extends JFrame {
 	JButton Color2 = new JButton("WHITE");
 	JButton Color3 = new JButton("GREEN");
 	JButton Color4 = new JButton("PINK");
-	JButton Color5 = new JButton("YELLOW");
+	JButton Color5 = new JButton("CYAN");
 	JButton Color6 = new JButton("GRAY");
 	JButton Chome = new JButton(new ImageIcon("./home.jpg"));
 
@@ -391,10 +391,10 @@ public class Operator extends JFrame {
 				WP.setBackground(Color.PINK);
 			}
 			if (e.getSource() == Color5) { // 뒤로가기 눌렀을때
-				CP.setBackground(Color.YELLOW);
-				homeP.setBackground(Color.YELLOW);
-				DP.setBackground(Color.YELLOW);
-				WP.setBackground(Color.YELLOW);
+				CP.setBackground(Color.cyan);
+				homeP.setBackground(Color.cyan);
+				DP.setBackground(Color.cyan);
+				WP.setBackground(Color.cyan);
 			}
 			if (e.getSource() == Color6) { // 뒤로가기 눌렀을때
 				CP.setBackground(Color.GRAY);
