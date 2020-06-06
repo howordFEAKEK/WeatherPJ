@@ -75,6 +75,9 @@ public class Operator extends JFrame {
 	Operator() {
 		// 홈패널 구성
 		setTitle("날씨예보프로그램");
+		System.setProperty("file.encoding","UTF-8");
+
+
 		System.out.println("test");
 		setBounds(100, 100, 400, 400);
 
