@@ -93,8 +93,8 @@ public class PublicDateGetter {
 		}
 		rd.close();
 		conn.disconnect();
-		val = c.pm25cutter(sb.toString());
-		return val;
+		
+		return sb.toString();
 	}
 
 	String weathergetter(String place) throws IOException {

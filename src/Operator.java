@@ -10,7 +10,7 @@ import java.lang.NullPointerException;
 public class Operator extends JFrame {
 
 	// test
-	// Cutter c = new Cutter();
+	Cutter c = new Cutter();
 	PublicDateGetter p = new PublicDateGetter();
 	Messages m = new Messages();
 	//
@@ -302,9 +302,15 @@ public class Operator extends JFrame {
 			}
 			if (e.getSource() == WB) { // 일기예보 버튼 눌렀을때
 
+				
 				tV = SiTf.getText();
+				if(tV == null) {
+					JOptionPane.showMessageDialog(null, "텍스트 창에 사시는 지역(시)를 영어로 입력해주세요");					
+				}
 				ImageIcon img = new ImageIcon();
-
+				if(p.weatherloca(tV) ==null) {
+					JOptionPane.showMessageDialog(null, "<html>지역(시)를 확인하여 주십시오.<br> 지역은 영어로 입력해주세요</html>");
+				}
 				WC = "<html>현재 지역 : " + p.weatherloca(tV) + "<br>현재 날씨 : " + p.weatherinfo(tV) + "<br>현재 기온 : "
 						+ p.weathertemp(tV) + "도<html>";
 
@@ -334,7 +340,7 @@ public class Operator extends JFrame {
 			if (e.getSource() == DButton1) { // ! 버튼을 눌렀을 때
 
 				try {
-					JOptionPane.showMessageDialog(null, "<html>" + p.weathergetter(null) + "<html>");
+					JOptionPane.showMessageDialog(null, "<html> 0 ~ 30 : 좋음 / 30 ~ 80 보통 / 80 ~ 150 나쁨 / 151 ~ 매우 나쁨 <br>해당지역("+aVal+") 의 미세먼지 농도 <br> pm10 = " + c.pm10Value(p.pm25getter(aVal)) + "<br> pm25 = " + c.pm25Value(p.pm25getter(aVal)) +"<br>한국 평균 : 100<html>");
 				} catch (HeadlessException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

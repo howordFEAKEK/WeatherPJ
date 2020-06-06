@@ -46,5 +46,22 @@ public class Cutter {
 		
 		return result;
 	}
+	String pm10Value(String sample) {
+
+		int index1 = sample.indexOf("<pm10Value>");//
+		int indexEnd = sample.indexOf("</pm10Value>");//
+		String result = sample.substring(index1 + 11, indexEnd);
+
+		return result;
+	}
+
+	String pm25Value(String sample) {
+
+		int index1 = sample.indexOf("<pm25Value>");//
+		int indexEnd = sample.indexOf("</pm25Value>");//
+		String result = sample.substring(index1 + 11, indexEnd);
+
+		return result;
+	}
 	
 }
