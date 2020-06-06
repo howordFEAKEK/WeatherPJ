@@ -13,11 +13,12 @@ public class Operator extends JFrame {
 	Cutter c = new Cutter();
 	PublicDateGetter p = new PublicDateGetter();
 	Messages m = new Messages();
+	smalltool s = new smalltool();
 	//
 	// 홈패널 구성요소
 	JPanel homeP = new JPanel();
 	JLabel hlb = new JLabel("Weather Forecast");
-	JTextField SiTf = new JTextField();
+	JTextField SiTf = new JTextField("지역(시)를 영어로");
 	JTextField DongTf = new JTextField();
 	JButton WB = new JButton("\uC77C\uAE30\uC608\uBCF4");
 	JButton DB = new JButton("\uBBF8\uC138\uBA3C\uC9C0");
@@ -51,7 +52,7 @@ public class Operator extends JFrame {
 	JPanel WP = new JPanel();
 	JButton WButton2 = new JButton(new ImageIcon(getClass().getClassLoader().getResource("home.jpg")));
 	JButton WButton1 = new JButton(new ImageIcon(getClass().getClassLoader().getResource("!.jpg")));
-	JLabel WImg = new JLabel("Wimg");
+	JLabel WImg = new JLabel(img);
 	JLabel WCont = new JLabel("");
 
 	// Change color 패널 구성
@@ -75,8 +76,7 @@ public class Operator extends JFrame {
 	Operator() {
 		// 홈패널 구성
 		setTitle("날씨예보프로그램");
-		System.setProperty("file.encoding","UTF-8");
-
+		System.setProperty("file.encoding", "UTF-8");
 
 		System.out.println("test");
 		setBounds(100, 100, 400, 400);
@@ -223,10 +223,10 @@ public class Operator extends JFrame {
 	}
 
 	public class MyMultiListener implements ActionListener {
-
+		ImageIcon img = new ImageIcon();
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == DB) { // 미세먼지 버튼 눌렀을때
-				ImageIcon img = new ImageIcon();
+				
 				try {
 
 					DC = m.pm10me(p.pm10getter(aVal));
@@ -302,13 +302,12 @@ public class Operator extends JFrame {
 			}
 			if (e.getSource() == WB) { // 일기예보 버튼 눌렀을때
 
-				
 				tV = SiTf.getText();
-				if(tV == null) {
-					JOptionPane.showMessageDialog(null, "텍스트 창에 사시는 지역(시)를 영어로 입력해주세요");					
+				if (tV == null) {
+					JOptionPane.showMessageDialog(null, "텍스트 창에 사시는 지역(시)를 영어로 입력해주세요");
 				}
 				ImageIcon img = new ImageIcon();
-				if(p.weatherloca(tV) ==null) {
+				if (p.weatherloca(tV) == null) {
 					JOptionPane.showMessageDialog(null, "<html>지역(시)를 확인하여 주십시오.<br> 지역은 영어로 입력해주세요</html>");
 				}
 				WC = "<html>현재 지역 : " + p.weatherloca(tV) + "<br>현재 날씨 : " + p.weatherinfo(tV) + "<br>현재 기온 : "
@@ -319,6 +318,46 @@ public class Operator extends JFrame {
 				WCont.setBounds(190, 167, 170, 170);
 				WCont.setHorizontalAlignment(SwingConstants.CENTER);
 				WP.add(WCont);
+
+				// test
+
+				switch (s.weatherimg(p.weatherinfo(tV))) {
+				case 1:
+					//System.out.println("test img1");
+					 img = new ImageIcon(getClass().getClassLoader().getResource("thor.png"));
+					break;
+
+				case 2:
+					//System.out.println("test img2");
+					 img = new ImageIcon(getClass().getClassLoader().getResource("rain.png"));
+					break;
+				case 3:
+					//System.out.println("test img3");
+				img = new ImageIcon(getClass().getClassLoader().getResource("snow.png"));
+					break;
+				case 4:
+					//System.out.println("test img4");
+					 img = new ImageIcon(getClass().getClassLoader().getResource("clear.png"));
+					break;
+				case 5:
+					//System.out.println("test img5");
+					img = new ImageIcon(getClass().getClassLoader().getResource("mc.png"));
+					break;
+				case 6:
+				//	System.out.println("test img6");
+					img = new ImageIcon(getClass().getClassLoader().getResource("wind.png"));
+					break;
+				default:
+					System.out.println("error testdfadsfa : " + aVal);
+					break;
+
+				}
+
+				WImg = new JLabel(img);
+
+				WImg.setBounds(10, 180, 170, 170);
+				WP.add(WImg);
+				//
 
 				setContentPane(WP);
 				setVisible(true);
@@ -340,7 +379,10 @@ public class Operator extends JFrame {
 			if (e.getSource() == DButton1) { // ! 버튼을 눌렀을 때
 
 				try {
-					JOptionPane.showMessageDialog(null, "<html> 0 ~ 30 : 좋음 / 30 ~ 80 보통 / 80 ~ 150 나쁨 / 151 ~ 매우 나쁨 <br>해당지역("+aVal+") 의 미세먼지 농도 <br> pm10 = " + c.pm10Value(p.pm25getter(aVal)) + "<br><br> pm25 = " + c.pm25Value(p.pm25getter(aVal)) +"<br><br>한국 평균 : 100<html>");
+					JOptionPane.showMessageDialog(null,
+							"<html> 0 ~ 30 : 좋음 / 30 ~ 80 보통 / 80 ~ 150 나쁨 / 151 ~ 매우 나쁨 <br>해당지역(" + aVal
+									+ ") 의 미세먼지 농도 <br> pm10 = " + c.pm10Value(p.pm25getter(aVal)) + "<br><br> pm25 = "
+									+ c.pm25Value(p.pm25getter(aVal)) + "<br><br>한국 평균 : 100<html>");
 				} catch (HeadlessException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
