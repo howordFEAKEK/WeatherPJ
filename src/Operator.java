@@ -340,7 +340,7 @@ public class Operator extends JFrame {
 			if (e.getSource() == DButton1) { // ! 버튼을 눌렀을 때
 
 				try {
-					JOptionPane.showMessageDialog(null, "<html> 0 ~ 30 : 좋음 / 30 ~ 80 보통 / 80 ~ 150 나쁨 / 151 ~ 매우 나쁨 <br>해당지역("+aVal+") 의 미세먼지 농도 <br> pm10 = " + c.pm10Value(p.pm25getter(aVal)) + "<br> pm25 = " + c.pm25Value(p.pm25getter(aVal)) +"<br>한국 평균 : 100<html>");
+					JOptionPane.showMessageDialog(null, "<html> 0 ~ 30 : 좋음 / 30 ~ 80 보통 / 80 ~ 150 나쁨 / 151 ~ 매우 나쁨 <br>해당지역("+aVal+") 의 미세먼지 농도 <br> pm10 = " + c.pm10Value(p.pm25getter(aVal)) + "<br><br> pm25 = " + c.pm25Value(p.pm25getter(aVal)) +"<br><br>한국 평균 : 100<html>");
 				} catch (HeadlessException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
