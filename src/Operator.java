@@ -84,7 +84,7 @@ public class Operator extends JFrame {
 		homeP.setBorder(new EmptyBorder(5, 5, 5, 5));
 		homeP.setLayout(null);
 
-		hlb.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 26));
+		hlb.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 20));
 		hlb.setHorizontalAlignment(SwingConstants.CENTER);
 		homeP.add(hlb);
 		hlb.setBounds(92, 46, 206, 43);
@@ -126,7 +126,7 @@ public class Operator extends JFrame {
 		DP.setBorder(new EmptyBorder(5, 5, 5, 5));
 		DP.setLayout(null);
 
-		DPLb.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 26));
+		DPLb.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 20));
 		DPLb.setHorizontalAlignment(SwingConstants.CENTER);
 		DP.add(DPLb);
 		DPLb.setBounds(92, 46, 206, 43);
@@ -151,7 +151,7 @@ public class Operator extends JFrame {
 		WP.setLayout(null);
 		WP.setBounds(100, 100, 300, 300);
 		Wlabel.setBounds(92, 46, 206, 43);
-		Wlabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 23));
+		Wlabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 20));
 		Wlabel.setHorizontalAlignment(SwingConstants.CENTER);
 		WP.add(Wlabel);
 
@@ -173,7 +173,7 @@ public class Operator extends JFrame {
 
 		CP.setLayout(null);
 
-		Clabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 26));
+		Clabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 20));
 		Clabel.setHorizontalAlignment(SwingConstants.CENTER);
 		CP.add(Clabel);
 		Clabel.setBounds(92, 46, 206, 43);
