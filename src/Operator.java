@@ -36,7 +36,7 @@ public class Operator extends JFrame {
 	JPanel DP = new JPanel();
 	JLabel DPLb = new JLabel("Fine Dust Forecast");
 
-	ImageIcon img = new ImageIcon("bin/image.jpg"); // 추후에 멀티리스터 if 문에 들어감
+	ImageIcon img = null; // 추후에 멀티리스터 if 문에 들어감
 	JLabel DImage = new JLabel(img);
 
 	String DC;
@@ -325,6 +325,7 @@ public class Operator extends JFrame {
 				case 1:
 					//System.out.println("test img1");
 					 img = new ImageIcon(getClass().getClassLoader().getResource("thor.png"));
+				
 					break;
 
 				case 2:
