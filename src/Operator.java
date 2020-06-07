@@ -42,7 +42,7 @@ public class Operator extends JFrame {
 	String DC;
 	JLabel DContent = new JLabel(DC);
 	JButton DButton1 = new JButton(new ImageIcon(getClass().getClassLoader().getResource("!.jpg")));
-	JButton DButton2 = new JButton("new");
+	JButton DButton2 = new JButton(new ImageIcon(getClass().getClassLoader().getResource("redo.png")));
 	JButton DButton3 = new JButton(new ImageIcon(getClass().getClassLoader().getResource("home.jpg")));
 	//
 
@@ -52,6 +52,7 @@ public class Operator extends JFrame {
 	JPanel WP = new JPanel();
 	JButton WButton2 = new JButton(new ImageIcon(getClass().getClassLoader().getResource("home.jpg")));
 	JButton WButton1 = new JButton(new ImageIcon(getClass().getClassLoader().getResource("!.jpg")));
+	JButton WButton3 = new JButton(new ImageIcon(getClass().getClassLoader().getResource("redo.png")));
 	JLabel WImg = new JLabel(img);
 	JLabel WCont = new JLabel("");
 
@@ -137,7 +138,7 @@ public class Operator extends JFrame {
 		DButton1.setBounds(25, 100, 60, 60);
 		DP.add(DButton1);
 
-		DButton2.setBounds(550, 236, 97, 32);
+		DButton2.setBounds(300, 100, 60, 60);
 		DP.add(DButton2);
 
 		DButton3.setBounds(25, 25, 60, 60);
@@ -156,12 +157,15 @@ public class Operator extends JFrame {
 		WP.add(Wlabel);
 
 		WButton2.setBounds(25, 25, 60, 60);
-		WButton2.setFont(new Font("휴먼편지체", Font.BOLD, 19));
+		// WButton2.setFont(new Font("휴먼편지체", Font.BOLD, 19));
 		WP.add(WButton2);
 
 		WButton1.setBounds(25, 100, 60, 60);
-		WButton1.setFont(new Font("휴먼편지체", Font.BOLD, 19));
+		// WButton1.setFont(new Font("휴먼편지체", Font.BOLD, 19));
 		WP.add(WButton1);
+
+		WButton3.setBounds(300, 100, 60, 60);
+		WP.add(WButton3);
 
 		WImg.setBounds(37, 181, 157, 139);
 		WP.add(WImg);
@@ -212,6 +216,7 @@ public class Operator extends JFrame {
 
 		WButton1.addActionListener(ml);
 		WButton2.addActionListener(ml);
+		WButton3.addActionListener(ml);
 
 		Color1.addActionListener(ml);
 		Color2.addActionListener(ml);
@@ -224,9 +229,10 @@ public class Operator extends JFrame {
 
 	public class MyMultiListener implements ActionListener {
 		ImageIcon img = new ImageIcon();
+
 		public void actionPerformed(ActionEvent e) {
-			if (e.getSource() == DB) { // 미세먼지 버튼 눌렀을때
-				
+			if (e.getSource() == DB || e.getSource() == DButton2) { // 미세먼지 버튼 눌렀을때
+
 				try {
 
 					DC = m.pm10me(p.pm10getter(aVal));
@@ -300,7 +306,7 @@ public class Operator extends JFrame {
 
 				//
 			}
-			if (e.getSource() == WB) { // 일기예보 버튼 눌렀을때
+			if (e.getSource() == WB || e.getSource() == WButton3) { // 일기예보 버튼 눌렀을때
 
 				tV = SiTf.getText();
 				if (tV == null) {
@@ -323,29 +329,29 @@ public class Operator extends JFrame {
 
 				switch (s.weatherimg(p.weatherinfo(tV))) {
 				case 1:
-					//System.out.println("test img1");
-					 img = new ImageIcon(getClass().getClassLoader().getResource("thor.png"));
-				
+					// System.out.println("test img1");
+					img = new ImageIcon(getClass().getClassLoader().getResource("thor.png"));
+
 					break;
 
 				case 2:
-					//System.out.println("test img2");
-					 img = new ImageIcon(getClass().getClassLoader().getResource("rain.png"));
+					// System.out.println("test img2");
+					img = new ImageIcon(getClass().getClassLoader().getResource("rain.png"));
 					break;
 				case 3:
-					//System.out.println("test img3");
-				img = new ImageIcon(getClass().getClassLoader().getResource("snow.png"));
+					// System.out.println("test img3");
+					img = new ImageIcon(getClass().getClassLoader().getResource("snow.png"));
 					break;
 				case 4:
-					//System.out.println("test img4");
-					 img = new ImageIcon(getClass().getClassLoader().getResource("clear.png"));
+					// System.out.println("test img4");
+					img = new ImageIcon(getClass().getClassLoader().getResource("clear.png"));
 					break;
 				case 5:
-					//System.out.println("test img5");
+					// System.out.println("test img5");
 					img = new ImageIcon(getClass().getClassLoader().getResource("mc.png"));
 					break;
 				case 6:
-				//	System.out.println("test img6");
+					// System.out.println("test img6");
 					img = new ImageIcon(getClass().getClassLoader().getResource("wind.png"));
 					break;
 				default:
@@ -468,6 +474,7 @@ public class Operator extends JFrame {
 				DP.setBackground(Color.GRAY);
 				WP.setBackground(Color.GRAY);
 			}
+			
 		}
 	}
 
