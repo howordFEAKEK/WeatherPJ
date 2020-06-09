@@ -41,7 +41,7 @@ public class smalltool {
 		ArrayList<String> nosee2 = new ArrayList<>(Arrays.asList(nosee));
 		String[] wind = { "토네이도", "태풍", "허리케인", "한랭", "바람부는", "약한 바람", "부드러운 바람", "중간 세기 바람", "신선한 바람", "센 바람",
 				"돌풍에 가까운 센 바람", "돌풍", "심각한 돌풍", "폭풍", "강한 폭풍", "허리케인", "구름으로 뒤덮인 흐린 하늘" }; // 바람
-		ArrayList<String> wind2 = new ArrayList<>(Arrays.asList(nosee));
+		ArrayList<String> wind2 = new ArrayList<>(Arrays.asList(wind));
 		for (var i = 0; i < snow.length; i++) {
 
 			if (thor2.contains(val)) {
@@ -60,8 +60,11 @@ public class smalltool {
 				return 5;
 
 			} else if (wind2.contains(val)) {
+				System.out.println("test?");
 				return 6;
 
+			}else {
+				System.out.println("test!");
 			}
 		}
 		return 0;
