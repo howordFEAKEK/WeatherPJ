@@ -422,7 +422,7 @@ public class Operator extends JFrame {
 				WCont.setText("");
 				//
 
-				// DImage.setIcon(null);
+				WImg.setIcon(null);
 
 				setContentPane(homeP);
 
