@@ -298,7 +298,10 @@ public class PublicDateGetter {
 			double ktemp = Double.parseDouble(mainArray.get("temp").toString());
 			double temp = ktemp - 273.15;
 
-			val = temp;
+			val = Double.parseDouble(String.format("%.2f",temp));
+
+
+
 
 			bf.close();
 		} catch (Exception e) {

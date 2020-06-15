@@ -317,7 +317,7 @@ public class Operator extends JFrame {
 					JOptionPane.showMessageDialog(null, "<html>지역(시)를 확인하여 주십시오.<br> 지역은 영어로 입력해주세요</html>");
 				}
 				WC = "<html>현재 지역 : " + p.weatherloca(tV) + "<br>현재 날씨 : " + p.weatherinfo(tV) + "<br>현재 기온 : "
-						+ p.weathertemp(tV) + "도<html>";
+						+ p.weathertemp(tV) + "°C<html>";
 
 				WCont = new JLabel(WC);
 
@@ -388,7 +388,7 @@ public class Operator extends JFrame {
 				try {
 					JOptionPane.showMessageDialog(null,
 							"<html> 0 ~ 30 : 좋음 / 30 ~ 80 보통 / 80 ~ 150 나쁨 / 151 ~ 매우 나쁨 <br>해당지역(" + aVal
-									+ ") 의 미세먼지 농도 <br> pm10 = " + c.pm10Value(p.pm25getter(aVal)) + "<br><br> pm25 = "
+									+ ") 의 미세먼지 농도 <br><br> pm10 = " + c.pm10Value(p.pm25getter(aVal)) + "<br><br> pm25 = "
 									+ c.pm25Value(p.pm25getter(aVal)) + "<br><br>한국 평균 : 100<html>");
 				} catch (HeadlessException e1) {
 					// TODO Auto-generated catch block
