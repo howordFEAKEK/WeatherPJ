@@ -1,29 +1,62 @@
 public class Cutter {
 
+	String cutterStandard(String sample, String start, String fin, int num) {
+		int index1 = sample.indexOf(start);// íŒŒì‹±í•´ì„œ ì–»ì–´ì˜¨ ë°ì´í„° ëŠëŠ” ì•ë¶€ë¶„
+		int indexEnd = sample.indexOf(fin);// íŒŒì‹±í•´ì„œ ì–»ì–´ì˜¨ ë°ì´í„° ëŠëŠ” ë’·ë¶€ë¶„
+
+		// System.out.println("index1 = " + index1 + " indexEnd = " + indexEnd); // ìœ„ì¹˜
+		// í™•ì¸ìš© test printë¬¸
+
+		String result = sample.substring(index1 + num, indexEnd);// ì‹œì‘ ë¶€ë¶„ +<resultCode> ë§Œí¼ ë‹¨ì–´ë¥¼ resultì— ì €ì¥
+		// System.out.println("result = " + result);// result ê°’ í™•ì¸
+
+		return result; // result ë°˜í™˜
+
+	}
+
 	String pm10cutter(String sample) {
 
-		int index1 = sample.indexOf("<pm10Grade>");// ÆÄ½ÌÇØ¼­ ¾ò¾î¿Â µ¥ÀÌÅÍ ²÷´Â ¾ÕºÎºĞ
-		int indexEnd = sample.indexOf("</pm10Grade>");// ÆÄ½ÌÇØ¼­ ¾ò¾î¿Â µ¥ÀÌÅÍ ²÷´Â µŞºÎºĞ
+		String result = cutterStandard(sample, "<pm10Grade>", "</pm10Grade>", 11);
 
-		//System.out.println("index1 = " + index1 + " indexEnd = " + indexEnd); // À§Ä¡ È®ÀÎ¿ë test print¹®
-
-		String result = sample.substring(index1 + 11, indexEnd);// ½ÃÀÛ ºÎºĞ +<resultCode> ¸¸Å­ ´Ü¾î¸¦ result¿¡ ÀúÀå
-		//System.out.println("result = " + result);// result °ª È®ÀÎ
-
-		return result; // result ¹İÈ¯
+		return result; // result ë°˜í™˜
 	}
 
 	String pm25cutter(String sample) {
 
-		int index1 = sample.indexOf("<pm25Grade>");// ÆÄ½ÌÇØ¼­ ¾ò¾î¿Â µ¥ÀÌÅÍ ²÷´Â ¾ÕºÎºĞ
-		int indexEnd = sample.indexOf("</pm25Grade>");// ÆÄ½ÌÇØ¼­ ¾ò¾î¿Â µ¥ÀÌÅÍ ²÷´Â µŞºÎºĞ
+		String result = cutterStandard(sample, "<pm25Grade>", "</pm25Grade>", 11);
 
-		//System.out.println("index1 = " + index1 + " indexEnd = " + indexEnd); // À§Ä¡ È®ÀÎ¿ë test print¹®
-
-		String result = sample.substring(index1 + 11, indexEnd);// ½ÃÀÛ ºÎºĞ +<resultCode> ¸¸Å­ ´Ü¾î¸¦ result¿¡ ÀúÀå
-		//System.out.println("result = " + result);// result °ª È®ÀÎ
-
-		return result; // result ¹İÈ¯
+		return result; // result ë°˜í™˜
 	}
+
+	String infocutter(String sample) {
+
+		String result = cutterStandard(sample, "<wf>", "</wf>", 4);
+
+		return result;
+	}
+
+	String tempercutter(String sample) {
+		String result = cutterStandard(sample, "<wf>", "</wf>", 4);
+
+		return result;
+	}
+
+	String pm10Value(String sample) {
+
+		int index1 = sample.indexOf("<pm10Value>");//
+		int indexEnd = sample.indexOf("</pm10Value>");//
+		String result = cutterStandard(sample, "<pm10Value>", "</pm10Value>", 10);
+
+		return result;
+	}
+
+	String pm25Value(String sample) {
+
+		String result = cutterStandard(sample, "<pm25Value>", "</pm25Value>", 10);
+
+		return result;
+	}
+
+
 
 }

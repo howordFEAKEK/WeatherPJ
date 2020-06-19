@@ -1,3 +1,4 @@
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
@@ -9,14 +10,15 @@ import java.lang.NullPointerException;
 public class Operator extends JFrame {
 
 	// test
-	// Cutter c = new Cutter();
+	Cutter c = new Cutter();
 	PublicDateGetter p = new PublicDateGetter();
 	Messages m = new Messages();
+	smalltool s = new smalltool();
 	//
-	// È¨ÆĞ³Î ±¸¼º¿ä¼Ò
+	// í™ˆíŒ¨ë„ êµ¬ì„±ìš”ì†Œ
 	JPanel homeP = new JPanel();
 	JLabel hlb = new JLabel("Weather Forecast");
-	JTextField SiTf = new JTextField();
+	JTextField SiTf = new JTextField("ì§€ì—­(ì‹œ)ë¥¼ ì˜ì–´ë¡œ");
 	JTextField DongTf = new JTextField();
 	JButton WB = new JButton("\uC77C\uAE30\uC608\uBCF4");
 	JButton DB = new JButton("\uBBF8\uC138\uBA3C\uC9C0");
@@ -26,84 +28,88 @@ public class Operator extends JFrame {
 	//
 
 	/*
-	 * sunset.jpg ÀÇ °æ·Î¸íÀÌ "images/sunset.jpg"ÀÎ °æ¿ì ImageIcon image = new
+	 * sunset.jpg ì˜ ê²½ë¡œëª…ì´ "images/sunset.jpg"ì¸ ê²½ìš° ImageIcon image = new
 	 * ImageIcon("images/sunset.jpg"); JLabel jLabel = new JLabel(image);
 	 */
 
-	// ¹Ì¼¼¸ÕÁö ÆĞ³Î ±¸¼º¿ä¼Ò
+	// ë¯¸ì„¸ë¨¼ì§€ íŒ¨ë„ êµ¬ì„±ìš”ì†Œ
 	JPanel DP = new JPanel();
 	JLabel DPLb = new JLabel("Fine Dust Forecast");
 
-	ImageIcon img = new ImageIcon("./image.jpg"); // ÃßÈÄ¿¡ ¸ÖÆ¼¸®½ºÅÍ if ¹®¿¡ µé¾î°¨
+	ImageIcon img = null; // ì¶”í›„ì— ë©€í‹°ë¦¬ìŠ¤í„° if ë¬¸ì— ë“¤ì–´ê°
 	JLabel DImage = new JLabel(img);
 
 	String DC;
 	JLabel DContent = new JLabel(DC);
-	JButton DButton1 = new JButton(new ImageIcon("./!.jpg"));
-	JButton DButton2 = new JButton("new");
-	JButton DButton3 = new JButton(new ImageIcon("./home.jpg"));
+	JButton DButton1 = new JButton(new ImageIcon(getClass().getClassLoader().getResource("!.jpg")));
+	JButton DButton2 = new JButton(new ImageIcon(getClass().getClassLoader().getResource("redo.png")));
+	JButton DButton3 = new JButton(new ImageIcon(getClass().getClassLoader().getResource("home.jpg")));
 	//
 
-	// ÀÏ±â¿¹º¸ ÆĞ³Î ±¸¼º¿ä¼Ò
+	// ì¼ê¸°ì˜ˆë³´ íŒ¨ë„ êµ¬ì„±ìš”ì†Œ
+	String WC;
 	JLabel Wlabel = new JLabel("Temperature forecast");
 	JPanel WP = new JPanel();
-	JButton WButton2 = new JButton("\uC0C1\uC138\uC815\uBCF42");
-	JButton WButton1 = new JButton("\uC0C1\uC138\uC815\uBCF41");
-	JLabel WImg = new JLabel("Wimg");
-	JLabel WCont = new JLabel("Wcont");
+	JButton WButton2 = new JButton(new ImageIcon(getClass().getClassLoader().getResource("home.jpg")));
+	JButton WButton1 = new JButton(new ImageIcon(getClass().getClassLoader().getResource("!.jpg")));
+	JButton WButton3 = new JButton(new ImageIcon(getClass().getClassLoader().getResource("redo.png")));
+	JLabel WImg = new JLabel(img);
+	JLabel WCont = new JLabel("");
 
-	//Change color ÆĞ³Î ±¸¼º
+	// Change color íŒ¨ë„ êµ¬ì„±
 	JPanel CP = new JPanel();
 	JLabel Clabel = new JLabel("Change Color");
-	JButton Color1 = new JButton("ORANGE");	
-	JButton Color2= new JButton("WHITE");
+	JButton Color1 = new JButton("ORANGE");
+	JButton Color2 = new JButton("WHITE");
 	JButton Color3 = new JButton("GREEN");
 	JButton Color4 = new JButton("PINK");
-	JButton Color5= new JButton("YELLOW");
+	JButton Color5 = new JButton("CYAN");
 	JButton Color6 = new JButton("GRAY");
-	JButton Chome = new JButton(new ImageIcon("./home.jpg"));
-	
-	//
-	
+	JButton Chome = new JButton(new ImageIcon(getClass().getClassLoader().getResource("home.jpg")));
 
-	// ±× ¿ÜÀÇ ÄÚµå ½ÇÇà¿¡ ÇÊ¿äÇÑ °ªµé
-	String aVal = "¼­¿ï";
+	//
+
+	// ê·¸ ì™¸ì˜ ì½”ë“œ ì‹¤í–‰ì— í•„ìš”í•œ ê°’ë“¤
+	String aVal = "ì„œìš¸";
+	String tV;
 
 	//
 	Operator() {
-		// È¨ÆĞ³Î ±¸¼º
-		setTitle("³¯¾¾¿¹º¸ÇÁ·Î±×·¥");
+		// í™ˆíŒ¨ë„ êµ¬ì„±
+		setTitle("ë‚ ì”¨ì˜ˆë³´í”„ë¡œê·¸ë¨");
+		System.setProperty("file.encoding", "UTF-8");
+
 		System.out.println("test");
 		setBounds(100, 100, 400, 400);
 
 		homeP.setBorder(new EmptyBorder(5, 5, 5, 5));
 		homeP.setLayout(null);
 
-		hlb.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 26));
+		hlb.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 20));
 		hlb.setHorizontalAlignment(SwingConstants.CENTER);
 		homeP.add(hlb);
 		hlb.setBounds(92, 46, 206, 43);
 
 		homeP.add(DoCB);
-		DoCB.setModel(new DefaultComboBoxModel(new String[] { "¼­¿ï", "ºÎ»ê", "´ë±¸", "ÀÎÃµ", "±¤ÁÖ", "´ëÀü", "¿ï»ê", "°æ±â", "°­¿ø",
-				"ÃæºÏ", "Ãæ³²", "ÀüºÏ", "Àü³²", "°æºÏ", "°æ³²", "Á¦ÁÖ", "¼¼Á¾" }));
-		DoCB.setFont(new Font("HY±×·¡ÇÈM", Font.BOLD, 12));
+		DoCB.setModel(new DefaultComboBoxModel(new String[] { "ì„œìš¸", "ë¶€ì‚°", "ëŒ€êµ¬", "ì¸ì²œ", "ê´‘ì£¼", "ëŒ€ì „", "ìš¸ì‚°", "ê²½ê¸°", "ê°•ì›",
+				"ì¶©ë¶", "ì¶©ë‚¨", "ì „ë¶", "ì „ë‚¨", "ê²½ë¶", "ê²½ë‚¨", "ì œì£¼", "ì„¸ì¢…" }));
+		DoCB.setFont(new Font("HYê·¸ë˜í”½M", Font.BOLD, 12));
 
 		DoCB.setBounds(50, 200, 124, 32);
 
 		homeP.add(SiTf);
 		SiTf.setColumns(10);
-		// SiTf.setBounds(208, 289, 124, 32);
+		SiTf.setBounds(50, 260, 124, 32);
 
 		homeP.add(DongTf);
 		DongTf.setColumns(10);
 		// DongTf.setBounds(357, 289, 124, 32);
 
-		WB.setFont(new Font("ÈŞ¸ÕÆíÁöÃ¼", Font.BOLD, 19));
+		WB.setFont(new Font("íœ´ë¨¼í¸ì§€ì²´", Font.BOLD, 19));
 		homeP.add(WB);
 		WB.setBounds(210, 200, 145, 32);
 
-		DB.setFont(new Font("ÈŞ¸ÕÆíÁöÃ¼", Font.BOLD, 19));
+		DB.setFont(new Font("íœ´ë¨¼í¸ì§€ì²´", Font.BOLD, 19));
 		homeP.add(DB);
 		DB.setBounds(210, 300, 145, 32);
 
@@ -114,14 +120,14 @@ public class Operator extends JFrame {
 		setVisible(true);
 		//
 
-		// ¹Ì¼¼¸ÕÁö ÆĞ³Î ±¸¼º
+		// ë¯¸ì„¸ë¨¼ì§€ íŒ¨ë„ êµ¬ì„±
 
 //   DP.setSize(300,300);
 
 		DP.setBorder(new EmptyBorder(5, 5, 5, 5));
 		DP.setLayout(null);
 
-		DPLb.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 26));
+		DPLb.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 20));
 		DPLb.setHorizontalAlignment(SwingConstants.CENTER);
 		DP.add(DPLb);
 		DPLb.setBounds(92, 46, 206, 43);
@@ -132,7 +138,7 @@ public class Operator extends JFrame {
 		DButton1.setBounds(25, 100, 60, 60);
 		DP.add(DButton1);
 
-		DButton2.setBounds(550, 236, 97, 32);
+		DButton2.setBounds(300, 100, 60, 60);
 		DP.add(DButton2);
 
 		DButton3.setBounds(25, 25, 60, 60);
@@ -140,74 +146,77 @@ public class Operator extends JFrame {
 
 		//
 
-		// ÀÏ±â ¿¹º¸ ÆĞ³Î ±¸¼º
+		// ì¼ê¸° ì˜ˆë³´ íŒ¨ë„ êµ¬ì„±
 
 		WP.setBorder(new EmptyBorder(5, 5, 5, 5));
 		WP.setLayout(null);
 		WP.setBounds(100, 100, 300, 300);
-		Wlabel.setBounds(143, 48, 384, 49);
-		Wlabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 29));
+		Wlabel.setBounds(92, 46, 206, 43);
+		Wlabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 20));
 		Wlabel.setHorizontalAlignment(SwingConstants.CENTER);
 		WP.add(Wlabel);
 
-		WButton2.setBounds(516, 288, 145, 32);
-		WButton2.setFont(new Font("ÈŞ¸ÕÆíÁöÃ¼", Font.BOLD, 19));
+		WButton2.setBounds(25, 25, 60, 60);
+		// WButton2.setFont(new Font("íœ´ë¨¼í¸ì§€ì²´", Font.BOLD, 19));
 		WP.add(WButton2);
 
-		WButton1.setBounds(516, 230, 145, 32);
-		WButton1.setFont(new Font("ÈŞ¸ÕÆíÁöÃ¼", Font.BOLD, 19));
+		WButton1.setBounds(25, 100, 60, 60);
+		// WButton1.setFont(new Font("íœ´ë¨¼í¸ì§€ì²´", Font.BOLD, 19));
 		WP.add(WButton1);
+
+		WButton3.setBounds(300, 100, 60, 60);
+		WP.add(WButton3);
 
 		WImg.setBounds(37, 181, 157, 139);
 		WP.add(WImg);
 
 		WCont.setBounds(255, 181, 157, 139);
 		WP.add(WCont);
-		
-		//Change Color 
+
+		// Change Color
 
 		CP.setLayout(null);
-	
-		Clabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 26));
+
+		Clabel.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.BOLD, 20));
 		Clabel.setHorizontalAlignment(SwingConstants.CENTER);
 		CP.add(Clabel);
 		Clabel.setBounds(92, 46, 206, 43);
-		
-		
+
 		Color1.setBounds(56, 166, 107, 23);
 		CP.add(Color1);
-		
+
 		Color2.setBounds(56, 213, 107, 23);
 		CP.add(Color2);
-		
+
 		Color3.setBounds(56, 261, 107, 23);
 		CP.add(Color3);
-		
+
 		Color4.setBounds(216, 166, 107, 23);
 		CP.add(Color4);
-		
+
 		Color5.setBounds(216, 213, 107, 23);
 		CP.add(Color5);
-		
+
 		Color6.setBounds(216, 261, 107, 23);
 		CP.add(Color6);
-		
+
 		Chome.setBounds(25, 25, 60, 60);
 		CP.add(Chome);
 
-		// ¸ÖÆ¼¸®½º³Ê ¼±¾ğ ¹× ºÎÂø
+		// ë©€í‹°ë¦¬ìŠ¤ë„ˆ ì„ ì–¸ ë° ë¶€ì°©
 		MyMultiListener ml = new MyMultiListener();
 		WB.addActionListener(ml);
 		DB.addActionListener(ml);
 		DoCB.addActionListener(ml);
 		Hop.addActionListener(ml);
-		
+
 		DButton1.addActionListener(ml);
 		DButton2.addActionListener(ml);
 		DButton3.addActionListener(ml);
 
 		WButton1.addActionListener(ml);
 		WButton2.addActionListener(ml);
+		WButton3.addActionListener(ml);
 
 		Color1.addActionListener(ml);
 		Color2.addActionListener(ml);
@@ -219,14 +228,15 @@ public class Operator extends JFrame {
 	}
 
 	public class MyMultiListener implements ActionListener {
+		ImageIcon img = new ImageIcon();
 
 		public void actionPerformed(ActionEvent e) {
-			if (e.getSource() == DB) { // ¹Ì¼¼¸ÕÁö ¹öÆ° ´­·¶À»¶§
-				ImageIcon img = new ImageIcon();
+			if (e.getSource() == DB || e.getSource() == DButton2) { // ë¯¸ì„¸ë¨¼ì§€ ë²„íŠ¼ ëˆŒë €ì„ë•Œ
+
 				try {
 
 					DC = m.pm10me(p.pm10getter(aVal));
-				
+
 					System.out.println(DC);
 				} catch (IOException e1) {
 					e1.printStackTrace();
@@ -242,17 +252,30 @@ public class Operator extends JFrame {
 				setContentPane(DP);
 
 				try {
-					m.pm10img(p.pm10getter(aVal));
-				} catch (IOException e1) {
+					switch (p.pm10getter(aVal)) {
+					case "1":
+						img = new ImageIcon(getClass().getClassLoader().getResource("good.jpg"));
+						break;
+
+					case "2":
+						img = new ImageIcon(getClass().getClassLoader().getResource("soso.jpg"));
+						break;
+					case "3":
+						img = new ImageIcon(getClass().getClassLoader().getResource("bad.jpg"));
+						break;
+					case "4":
+						img = new ImageIcon(getClass().getClassLoader().getResource("uu.jpg"));
+						break;
+					default:
+						System.out.println("error testdfadsfa : " + aVal);
+						break;
+
+					}
+				} catch (IOException e2) {
 					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					e2.printStackTrace();
 				}
 
-				try {
-					img = new ImageIcon(m.pm10img(p.pm10getter(aVal)));
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
 				DImage = new JLabel(img);
 
 				DImage.setBounds(10, 180, 170, 170);
@@ -266,9 +289,9 @@ public class Operator extends JFrame {
 					e1.printStackTrace();
 				}
 				try {
-					System.out.println("img val : " + m.pm10img(p.pm10getter(aVal)));
-					if(m.pm10me(p.pm10getter(aVal))=="error") {
-						JOptionPane.showMessageDialog(DP, "ÇØ´çÁö¿ªÀÇ Á¤º¸´Â ÇöÀç Á¶È¸µÇÁö ¾Ê½À´Ï´Ù.");
+					// System.out.println("img val : " + m.pm10img(p.pm10getter(aVal)));
+					if (m.pm10me(p.pm10getter(aVal)) == "error") {
+						JOptionPane.showMessageDialog(DP, "í•´ë‹¹ì§€ì—­ì˜ ì •ë³´ëŠ” í˜„ì¬ ì¡°íšŒë˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 
 					}
 				} catch (IOException e1) {
@@ -276,22 +299,81 @@ public class Operator extends JFrame {
 					e1.printStackTrace();
 				}
 				// ----------------
-			
+
 				setVisible(true);
 
-				// ¿À´ÃÀÇ ³¯¾¾¿¡ µû¶ó if ¹® »ç¿ëÇØ¼­ brunch ÇÔ
+				// ì˜¤ëŠ˜ì˜ ë‚ ì”¨ì— ë”°ë¼ if ë¬¸ ì‚¬ìš©í•´ì„œ brunch í•¨
 
 				//
 			}
-			if (e.getSource() == WB) { // ÀÏ±â¿¹º¸ ¹öÆ° ´­·¶À»¶§
+			if (e.getSource() == WB || e.getSource() == WButton3) { // ì¼ê¸°ì˜ˆë³´ ë²„íŠ¼ ëˆŒë €ì„ë•Œ
+
+				tV = SiTf.getText();
+				if (tV == null) {
+					JOptionPane.showMessageDialog(null, "í…ìŠ¤íŠ¸ ì°½ì— ì‚¬ì‹œëŠ” ì§€ì—­(ì‹œ)ë¥¼ ì˜ì–´ë¡œ ì…ë ¥í•´ì£¼ì„¸ìš”");
+				}
+				ImageIcon img = new ImageIcon();
+				if (p.weatherloca(tV) == null) {
+					JOptionPane.showMessageDialog(null, "<html>ì§€ì—­(ì‹œ)ë¥¼ í™•ì¸í•˜ì—¬ ì£¼ì‹­ì‹œì˜¤.<br> ì§€ì—­ì€ ì˜ì–´ë¡œ ì…ë ¥í•´ì£¼ì„¸ìš”</html>");
+				}
+				WC = "<html>í˜„ì¬ ì§€ì—­ : " + p.weatherloca(tV) + "<br>í˜„ì¬ ë‚ ì”¨ : " + p.weatherinfo(tV) + "<br>í˜„ì¬ ê¸°ì˜¨ : "
+						+ p.weathertemp(tV) + "Â°C<html>";
+
+				WCont = new JLabel(WC);
+
+				WCont.setBounds(190, 167, 170, 170);
+				WCont.setHorizontalAlignment(SwingConstants.CENTER);
+				WP.add(WCont);
+
+				// test
+
+				switch (s.weatherimg(p.weatherinfo(tV))) {
+				case 1:
+					// System.out.println("test img1");
+					img = new ImageIcon(getClass().getClassLoader().getResource("thor.png"));
+
+					break;
+
+				case 2:
+					// System.out.println("test img2");
+					img = new ImageIcon(getClass().getClassLoader().getResource("rain.png"));
+					break;
+				case 3:
+					// System.out.println("test img3");
+					img = new ImageIcon(getClass().getClassLoader().getResource("snow.png"));
+					break;
+				case 4:
+					// System.out.println("test img4");
+					img = new ImageIcon(getClass().getClassLoader().getResource("clear.png"));
+					break;
+				case 5:
+					// System.out.println("test img5");
+					img = new ImageIcon(getClass().getClassLoader().getResource("mc.png"));
+					break;
+				case 6:
+					// System.out.println("test img6");
+					img = new ImageIcon(getClass().getClassLoader().getResource("wind.png"));
+					break;
+				default:
+					System.out.println("error testdfadsfa : " + aVal);
+					break;
+
+				}
+
+				WImg = new JLabel(img);
+
+				WImg.setBounds(10, 180, 170, 170);
+				WP.add(WImg);
+				//
+
 				setContentPane(WP);
 				setVisible(true);
 
-				// ¿À´ÃÀÇ ³¯¾¾¿¡ µû¶ó if ¹® »ç¿ëÇØ¼­ brunch ÇÔ
+				// ì˜¤ëŠ˜ì˜ ë‚ ì”¨ì— ë”°ë¼ if ë¬¸ ì‚¬ìš©í•´ì„œ brunch í•¨
 
 				//
 			}
-			if (e.getSource() == DButton3) { // È¨À¸·Î °¡±â ´­·¶À» ¶§
+			if (e.getSource() == DButton3) { // í™ˆìœ¼ë¡œ ê°€ê¸° ëˆŒë €ì„ ë•Œ
 				DContent.setText("");
 				//
 
@@ -301,62 +383,98 @@ public class Operator extends JFrame {
 
 				setVisible(true);
 			}
-			if (e.getSource() == Chome) { // È¨À¸·Î °¡±â ´­·¶À» ¶§
+			if (e.getSource() == DButton1) { // ! ë²„íŠ¼ì„ ëˆŒë €ì„ ë•Œ
+
+				try {
+					JOptionPane.showMessageDialog(null,
+							"<html> 0 ~ 30 : ì¢‹ìŒ / 30 ~ 80 ë³´í†µ / 80 ~ 150 ë‚˜ì¨ / 151 ~ ë§¤ìš° ë‚˜ì¨ <br>í•´ë‹¹ì§€ì—­(" + aVal
+									+ ") ì˜ ë¯¸ì„¸ë¨¼ì§€ ë†ë„ <br><br> pm10 = " + c.pm10Value(p.pm25getter(aVal)) + "<br><br> pm25 = "
+									+ c.pm25Value(p.pm25getter(aVal)) + "<br><br>í•œêµ­ í‰ê·  : 100<html>");
+				} catch (HeadlessException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				setVisible(true);
+
+			}
+			if (e.getSource() == Chome) { // í™ˆìœ¼ë¡œ ê°€ê¸° ëˆŒë €ì„ ë•Œ
 
 				setContentPane(homeP);
 
 				setVisible(true);
 			}
-			if (e.getSource() == WButton2) { // µÚ·Î°¡±â ´­·¶À»¶§
+			if (e.getSource() == WButton1) { // ë’¤ë¡œê°€ê¸° ëˆŒë €ì„ë•Œ
+				try {
+					JOptionPane.showMessageDialog(null, "<html>" + p.weathergetter(null) + "<html>");
+				} catch (HeadlessException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				setVisible(true);
+			}
+			if (e.getSource() == WButton2) { // ë’¤ë¡œê°€ê¸° ëˆŒë €ì„ë•Œ
+				WCont.setText("");
+				//
+
+				WImg.setIcon(null);
+
 				setContentPane(homeP);
+
 				setVisible(true);
 			}
 			if (e.getSource().equals(DoCB)) {
 				JComboBox cb = (JComboBox) e.getSource();
 				aVal = (String) cb.getSelectedItem();
 				System.out.println(aVal);
-				// ÄŞº¸¹Ú½º¸¦ ÅëÇÏ¿© ÀÔ·ÂÀ» ¹ŞÀ¸¸é ±× °ªÀ» ¹İÈ¯ÇÏ¿© val ÇÊµå¿¡ ÀúÀåÇÔ
+				// ì½¤ë³´ë°•ìŠ¤ë¥¼ í†µí•˜ì—¬ ì…ë ¥ì„ ë°›ìœ¼ë©´ ê·¸ ê°’ì„ ë°˜í™˜í•˜ì—¬ val í•„ë“œì— ì €ì¥í•¨
 			}
-			if (e.getSource() == Hop) { // µÚ·Î°¡±â ´­·¶À»¶§
+			if (e.getSource() == Hop) { // ë’¤ë¡œê°€ê¸° ëˆŒë €ì„ë•Œ
 				setContentPane(CP);
 				setVisible(true);
 			}
-			if (e.getSource() == Color1) { // µÚ·Î°¡±â ´­·¶À»¶§
+			if (e.getSource() == Color1) { // ë’¤ë¡œê°€ê¸° ëˆŒë €ì„ë•Œ
 				CP.setBackground(Color.ORANGE);
 				homeP.setBackground(Color.ORANGE);
 				DP.setBackground(Color.ORANGE);
 				WP.setBackground(Color.ORANGE);
 			}
-			if (e.getSource() == Color2) { // µÚ·Î°¡±â ´­·¶À»¶§
+			if (e.getSource() == Color2) { // ë’¤ë¡œê°€ê¸° ëˆŒë €ì„ë•Œ
 				CP.setBackground(Color.WHITE);
 				homeP.setBackground(Color.WHITE);
 				DP.setBackground(Color.WHITE);
 				WP.setBackground(Color.WHITE);
 			}
-			if (e.getSource() == Color3) { // µÚ·Î°¡±â ´­·¶À»¶§
+			if (e.getSource() == Color3) { // ë’¤ë¡œê°€ê¸° ëˆŒë €ì„ë•Œ
 				CP.setBackground(Color.GREEN);
 				homeP.setBackground(Color.GREEN);
 				DP.setBackground(Color.GREEN);
 				WP.setBackground(Color.GREEN);
 			}
-			if (e.getSource() == Color4) { // µÚ·Î°¡±â ´­·¶À»¶§
+			if (e.getSource() == Color4) { // ë’¤ë¡œê°€ê¸° ëˆŒë €ì„ë•Œ
 				CP.setBackground(Color.PINK);
 				homeP.setBackground(Color.PINK);
 				DP.setBackground(Color.PINK);
 				WP.setBackground(Color.PINK);
 			}
-			if (e.getSource() == Color5) { // µÚ·Î°¡±â ´­·¶À»¶§
-				CP.setBackground(Color.YELLOW);
-				homeP.setBackground(Color.YELLOW);
-				DP.setBackground(Color.YELLOW);
-				WP.setBackground(Color.YELLOW);
+			if (e.getSource() == Color5) { // ë’¤ë¡œê°€ê¸° ëˆŒë €ì„ë•Œ
+				CP.setBackground(Color.cyan);
+				homeP.setBackground(Color.cyan);
+				DP.setBackground(Color.cyan);
+				WP.setBackground(Color.cyan);
 			}
-			if (e.getSource() == Color6) { // µÚ·Î°¡±â ´­·¶À»¶§
+			if (e.getSource() == Color6) { // ë’¤ë¡œê°€ê¸° ëˆŒë €ì„ë•Œ
 				CP.setBackground(Color.GRAY);
 				homeP.setBackground(Color.GRAY);
 				DP.setBackground(Color.GRAY);
 				WP.setBackground(Color.GRAY);
 			}
+			
 		}
 	}
 

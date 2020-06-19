@@ -7,35 +7,35 @@ public class Messages {
 		//System.out.println("--------"+val);
 		switch (val) {
 		case "1":
-			me = "<html>ÀÏ»óÀûÀÎ ½Ç¿ÜÈ°µ¿ °¡´É<html>";break;
+			me = "<html>ì¼ìƒì ì¸ ì‹¤ì™¸í™œë™ ê°€ëŠ¥<html>";break;
 		case "2":
-			me = "<html>ÀÏ»óÀûÀÎ ½Ç¿ÜÈ°µ¿Àº °¡´É,<br> È£Èí±â°¡ ¹Î°¨ÇÑ ºĞµéÀº Á¶½ÉÇÏ¼¼¿ä.<html>";break;
+			me = "<html>ì¼ìƒì ì¸ ì‹¤ì™¸í™œë™ì€ ê°€ëŠ¥,<br> í˜¸í¡ê¸°ê°€ ë¯¼ê°í•œ ë¶„ë“¤ì€ ì¡°ì‹¬í•˜ì„¸ìš”.<html>";break;
 		case "3":
-			me = "<html>Àå±â°£ ¶Ç´Â ¹«¸®ÇÑ <br>½Ç¿Ü È°µ¿À» »ï°¡ÇØÁÖ¼¼¿ä.<br><br> Æ¯È÷ Ãµ½ÄÀÌ ÀÖÀ¸½Ã´Ù¸é,<br> ÈíÀÔ±â¸¦ ´õ ÀÚÁÖ »ç¿ëÇØÁÖ¼¼¿ä.<html>";break;
+			me = "<html>ì¥ê¸°ê°„ ë˜ëŠ” ë¬´ë¦¬í•œ <br>ì‹¤ì™¸ í™œë™ì„ ì‚¼ê°€í•´ì£¼ì„¸ìš”.<br><br> íŠ¹íˆ ì²œì‹ì´ ìˆìœ¼ì‹œë‹¤ë©´,<br> í¡ì…ê¸°ë¥¼ ë” ìì£¼ ì‚¬ìš©í•´ì£¼ì„¸ìš”.<html>";break;
 		case "4":
-			me = "<html>°¡±ŞÀû ½Ç³»È°µ¿À»<br> ÇØÁÖ¼¼¿ä. <br><br>¹Î°¨±º È¯ÀÚÀÏ °æ¿ì<br> ÀÇ»ç¿ÍÀÇ »óÀÇ°¡ <br>ÇÊ¿äÇÑ ¼öÁØÀÔ´Ï´Ù.<html>";break;
+			me = "<html>ê°€ê¸‰ì  ì‹¤ë‚´í™œë™ì„<br> í•´ì£¼ì„¸ìš”. <br><br>ë¯¼ê°êµ° í™˜ìì¼ ê²½ìš°<br> ì˜ì‚¬ì™€ì˜ ìƒì˜ê°€ <br>í•„ìš”í•œ ìˆ˜ì¤€ì…ë‹ˆë‹¤.<html>";break;
 			default:
 				me="error";break;
 		}
 
 		return me;
 	}
-	String pm10img(String val) {
+	/*String pm10img(String val) {
 		System.out.println("img--------"+val+"/");
 		switch (val) {
 		case "1":
-			me = "./good.jpg";break; //ÃßÈÄ¿¡ ¸ÖÆ¼¸®½ºÅÍ if ¹®¿¡ µé¾î°¨
+			me = getClass().getClassLoader().getResource("good.jpg");break; //ì¶”í›„ì— ë©€í‹°ë¦¬ìŠ¤í„° if ë¬¸ì— ë“¤ì–´ê°
 		
 		case "2":
-			me = "./soso.jpg";break; //ÃßÈÄ¿¡ ¸ÖÆ¼¸®½ºÅÍ if ¹®¿¡ µé¾î°¨;break;
+			me = getClass().getClassLoader().getResource("soso.jpg");break; //ì¶”í›„ì— ë©€í‹°ë¦¬ìŠ¤í„° if ë¬¸ì— ë“¤ì–´ê°;break;
 		case "3":
-			me = "./bad.jpg";break; //ÃßÈÄ¿¡ ¸ÖÆ¼¸®½ºÅÍ if ¹®¿¡ µé¾î°¨;break;
+			me = getClass().getClassLoader().getResource("bad.jpg");break; //ì¶”í›„ì— ë©€í‹°ë¦¬ìŠ¤í„° if ë¬¸ì— ë“¤ì–´ê°;break;
 		case "4":
-			me = "./uu.jpg";break; //ÃßÈÄ¿¡ ¸ÖÆ¼¸®½ºÅÍ if ¹®¿¡ µé¾î°¨;break;
+			me = getClass().getClassLoader().getResource("uu.jpg");break; //ì¶”í›„ì— ë©€í‹°ë¦¬ìŠ¤í„° if ë¬¸ì— ë“¤ì–´ê°;break;
 		default:
 			me="error";break;
 
 		}
 		return me;
-	}
+	}*/
 }

@@ -4,6 +4,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Scanner;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
 import java.io.IOException;
 
 public class PublicDateGetter {
@@ -21,20 +26,20 @@ public class PublicDateGetter {
 																															 * Key
 																															 */
 		urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "="
-				+ URLEncoder.encode("10", "UTF-8")); /* ÇÑ ÆäÀÌÁö °á°ú ¼ö */
+				+ URLEncoder.encode("10", "UTF-8")); /* í•œ íŽ˜ì´ì§€ ê²°ê³¼ ìˆ˜ */
 		urlBuilder.append(
-				"&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /* ÆäÀÌÁö ¹øÈ£ */
+				"&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /* íŽ˜ì´ì§€ ë²ˆí˜¸ */
 		urlBuilder.append("&" + URLEncoder.encode("sidoName", "UTF-8") + "=" + URLEncoder.encode(place,
-				"UTF-8")); /* ½Ãµµ ÀÌ¸§ (¼­¿ï, ºÎ»ê, ´ë±¸, ÀÎÃµ, ±¤ÁÖ, ´ëÀü, ¿ï»ê, °æ±â, °­¿ø, ÃæºÏ, Ãæ³², ÀüºÏ, Àü³², °æºÏ, °æ³², Á¦ÁÖ, ¼¼Á¾) */
+				"UTF-8")); /* ì‹œë„ ì´ë¦„ (ì„œìš¸, ë¶€ì‚°, ëŒ€êµ¬, ì¸ì²œ, ê´‘ì£¼, ëŒ€ì „, ìš¸ì‚°, ê²½ê¸°, ê°•ì›, ì¶©ë¶, ì¶©ë‚¨, ì „ë¶, ì „ë‚¨, ê²½ë¶, ê²½ë‚¨, ì œì£¼, ì„¸ì¢…) */
 		urlBuilder.append("&" + URLEncoder.encode("ver", "UTF-8") + "="
-				+ URLEncoder.encode("1.3", "UTF-8")); /* ¹öÀüº° »ó¼¼ °á°ú Âü°í¹®¼­ ÂüÁ¶ */
+				+ URLEncoder.encode("1.3", "UTF-8")); /* ë²„ì „ë³„ ìƒì„¸ ê²°ê³¼ ì°¸ê³ ë¬¸ì„œ ì°¸ì¡° */
 		URL url = new URL(urlBuilder.toString());
 		String val;
 
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setRequestMethod("GET");
 		conn.setRequestProperty("Content-type", "application/json");
-		//System.out.println("Response code: " + conn.getResponseCode());
+		// System.out.println("Response code: " + conn.getResponseCode());
 		BufferedReader rd;
 		if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
 			rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -63,18 +68,17 @@ public class PublicDateGetter {
 																															 * Key
 																															 */
 		urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "="
-				+ URLEncoder.encode("10", "UTF-8")); /* ÇÑ ÆäÀÌÁö °á°ú ¼ö */
+				+ URLEncoder.encode("10", "UTF-8")); /* í•œ íŽ˜ì´ì§€ ê²°ê³¼ ìˆ˜ */
 		urlBuilder.append(
-				"&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /* ÆäÀÌÁö ¹øÈ£ */
+				"&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /* íŽ˜ì´ì§€ ë²ˆí˜¸ */
 		urlBuilder.append("&" + URLEncoder.encode("sidoName", "UTF-8") + "=" + URLEncoder.encode(place,
-				"UTF-8")); /* ½Ãµµ ÀÌ¸§ (¼­¿ï, ºÎ»ê, ´ë±¸, ÀÎÃµ, ±¤ÁÖ, ´ëÀü, ¿ï»ê, °æ±â, °­¿ø, ÃæºÏ, Ãæ³², ÀüºÏ, Àü³², °æºÏ, °æ³², Á¦ÁÖ, ¼¼Á¾) */
+				"UTF-8")); /* ì‹œë„ ì´ë¦„ (ì„œìš¸, ë¶€ì‚°, ëŒ€êµ¬, ì¸ì²œ, ê´‘ì£¼, ëŒ€ì „, ìš¸ì‚°, ê²½ê¸°, ê°•ì›, ì¶©ë¶, ì¶©ë‚¨, ì „ë¶, ì „ë‚¨, ê²½ë¶, ê²½ë‚¨, ì œì£¼, ì„¸ì¢…) */
 		urlBuilder.append("&" + URLEncoder.encode("ver", "UTF-8") + "="
-				+ URLEncoder.encode("1.3", "UTF-8")); /* ¹öÀüº° »ó¼¼ °á°ú Âü°í¹®¼­ ÂüÁ¶ */
+				+ URLEncoder.encode("1.3", "UTF-8")); /* ë²„ì „ë³„ ìƒì„¸ ê²°ê³¼ ì°¸ê³ ë¬¸ì„œ ì°¸ì¡° */
 		URL url = new URL(urlBuilder.toString());
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setRequestMethod("GET");
 		conn.setRequestProperty("Content-type", "application/json");
-		//System.out.println("Response code: " + conn.getResponseCode());
 		BufferedReader rd;
 		if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
 			rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -88,7 +92,222 @@ public class PublicDateGetter {
 		}
 		rd.close();
 		conn.disconnect();
-		val = c.pm25cutter(sb.toString());
+		
+		return sb.toString();
+	}
+
+	String weathergetter(String place) throws IOException {
+		Cutter c = new Cutter();
+		StringBuilder urlBuilder = new StringBuilder(
+				"http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=108"); /* URL */
+		String val;
+
+		urlBuilder.append(
+				"&" + URLEncoder.encode("nx", "UTF-8") + "=" + URLEncoder.encode("27", "UTF-8")); /* ì˜ˆë³´ì§€ì ì˜ X ì¢Œí‘œê°’ */
+		urlBuilder.append(
+				"&" + URLEncoder.encode("ny", "UTF-8") + "=" + URLEncoder.encode("127", "UTF-8")); /* ì˜ˆë³´ì§€ì  Y ì¢Œí‘œ */
+
+		URL url = new URL(urlBuilder.toString());
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		conn.setRequestMethod("GET");
+		conn.setRequestProperty("Content-type", "application/json");
+		System.out.println("Response code: " + conn.getResponseCode());
+
+		BufferedReader rd = new BufferedReader(
+				new InputStreamReader(conn.getInputStream(), "utf-8"));
+
+
+
+		if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+			rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+		} else {
+			rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+		}
+		StringBuilder sb = new StringBuilder();
+		String line;
+		while ((line = rd.readLine()) != null) {
+			sb.append(line);
+		}
+		rd.close();
+		conn.disconnect();
+		// System.out.println(sb.toString());
+		val = c.infocutter(sb.toString());
+		System.out.println("tets");
+		return val;
+	}
+
+	String weathergetter1(String place) throws IOException {
+		Cutter c = new Cutter();
+		StringBuilder urlBuilder = new StringBuilder(
+				"http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=108"); /* URL */
+		String val;
+
+		// urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") +
+		// "=LgRgbunXMOlZA23p%2B3W9rS6oLCPvoFIt%2FIFz1k4lLvYZPSmOjf6WgbER6%2Be2gybE73XKzeGgaaveKiSn1SlykA%3D%3D");
+		// /*Service Key*/
+		// urlBuilder.append("&" + URLEncoder.encode("ServiceKey","UTF-8") + "=" +
+		// URLEncoder.encode("-", "UTF-8")); /*ê³µê³µë°ì´í„°í¬í„¸ì—ì„œ ë°›ì€ ì¸ì¦í‚¤*/
+		// urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" +
+		// URLEncoder.encode("1", "UTF-8")); /*íŽ˜ì´ì§€ë²ˆí˜¸*/
+		// urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" +
+		// URLEncoder.encode("10", "UTF-8")); /*í•œ íŽ˜ì´ì§€ ê²°ê³¼ ìˆ˜*/
+		// urlBuilder.append("&" + URLEncoder.encode("dataType","UTF-8") + "=" +
+		// URLEncoder.encode("XML", "UTF-8")); /*ìš”ì²­ìžë£Œí˜•ì‹(XML/JSON)Default: XML*/
+		// urlBuilder.append("&" + URLEncoder.encode("base_date","UTF-8") + "=" +
+		// URLEncoder.encode("20200601", "UTF-8")); /*15ë…„ 12ì›” 1ì¼ ë°œí‘œ*/
+		// urlBuilder.append("&" + URLEncoder.encode("base_time","UTF-8") + "=" +
+		// URLEncoder.encode("0600", "UTF-8")); /*06ì‹œ ë°œí‘œ(ì •ì‹œë‹¨ìœ„)*/
+		urlBuilder.append(
+				"&" + URLEncoder.encode("nx", "UTF-8") + "=" + URLEncoder.encode("27", "UTF-8")); /* ì˜ˆë³´ì§€ì ì˜ X ì¢Œí‘œê°’ */
+		urlBuilder.append(
+				"&" + URLEncoder.encode("ny", "UTF-8") + "=" + URLEncoder.encode("127", "UTF-8")); /* ì˜ˆë³´ì§€ì  Y ì¢Œí‘œ */
+
+		URL url = new URL(urlBuilder.toString());
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		conn.setRequestMethod("GET");
+		conn.setRequestProperty("Content-type", "application/json");
+		System.out.println("Response code: " + conn.getResponseCode());
+
+		BufferedReader rd;
+
+		if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+			rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+		} else {
+			rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+		}
+		StringBuilder sb = new StringBuilder();
+		String line;
+		while ((line = rd.readLine()) != null) {
+			sb.append(line);
+		}
+		rd.close();
+		conn.disconnect();
+		// System.out.println(sb.toString());
+		val = c.infocutter(sb.toString());
+		return val;
+	}
+
+	String weatherloca(String loca) {
+		String val = null;
+		try {
+
+			// OpenAPI callí•˜ëŠ” URL
+			String urlstr = "http://api.openweathermap.org/data/2.5/weather?" + "q=" + loca
+					+ "&appid=082b31d2f7ab5b654775052d887b7b0c";
+			URL url = new URL(urlstr);
+			BufferedReader bf;
+			String line;
+			String result = "";
+
+			// ë‚ ì”¨ ì •ë³´ë¥¼ ë°›ì•„ì˜¨ë‹¤.
+			bf = new BufferedReader(new InputStreamReader(url.openStream()));
+
+			// ë²„í¼ì— ìžˆëŠ” ì •ë³´ë¥¼ ë¬¸ìžì—´ë¡œ ë³€í™˜.
+			while ((line = bf.readLine()) != null) {
+				result = result.concat(line);
+				// System.out.println(line);
+			}
+
+			// ë¬¸ìžì—´ì„ JSONìœ¼ë¡œ íŒŒì‹±
+			JSONParser jsonParser = new JSONParser();
+			JSONObject jsonObj = (JSONObject) jsonParser.parse(result);
+			// ì§€ì—­ ì¶œë ¥
+
+			val = jsonObj.get("name").toString();
+
+			bf.close();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		return val;
+	}
+
+	String weatherinfo(String loca) {
+		smalltool s = new smalltool();
+		int sample;
+		String val = null;
+		try {
+			// ì„œìš¸ì‹œì²­ì˜ ìœ„ë„ì™€ ê²½ë„
+
+			// OpenAPI callí•˜ëŠ” URL
+			String urlstr = "http://api.openweathermap.org/data/2.5/weather?" + "q=" + loca
+					+ "&appid=082b31d2f7ab5b654775052d887b7b0c";
+			URL url = new URL(urlstr);
+			BufferedReader bf;
+			String line;
+			String result = "";
+
+			// ë‚ ì”¨ ì •ë³´ë¥¼ ë°›ì•„ì˜¨ë‹¤.
+			bf = new BufferedReader(new InputStreamReader(url.openStream()));
+
+			// ë²„í¼ì— ìžˆëŠ” ì •ë³´ë¥¼ ë¬¸ìžì—´ë¡œ ë³€í™˜.
+			while ((line = bf.readLine()) != null) {
+				result = result.concat(line);
+				// System.out.println(line);
+			}
+
+			// ë¬¸ìžì—´ì„ JSONìœ¼ë¡œ íŒŒì‹±
+			JSONParser jsonParser = new JSONParser();
+			JSONObject jsonObj = (JSONObject) jsonParser.parse(result);
+
+			// ë‚ ì”¨ ì¶œë ¥
+			JSONArray weatherArray = (JSONArray) jsonObj.get("weather");
+			JSONObject obj = (JSONObject) weatherArray.get(0);
+			System.out.println("ë‚ ì”¨ : " + obj.get("id"));
+
+			val = obj.get("id").toString();
+			sample = Integer.parseInt(val);
+
+			val = s.wDescEngToKor(sample);
+
+			bf.close();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		return val;
+	}
+
+	double weathertemp(String loca) {
+		double val = 00.00;
+		try {
+			// ì„œìš¸ì‹œì²­ì˜ ìœ„ë„ì™€ ê²½ë„
+			String urlstr = "http://api.openweathermap.org/data/2.5/weather?" + "q=" + loca
+					+ "&appid=082b31d2f7ab5b654775052d887b7b0c";
+			URL url = new URL(urlstr);
+			BufferedReader bf;
+			String line;
+			String result = "";
+
+			// ë‚ ì”¨ ì •ë³´ë¥¼ ë°›ì•„ì˜¨ë‹¤.
+			bf = new BufferedReader(new InputStreamReader(url.openStream()));
+
+			// ë²„í¼ì— ìžˆëŠ” ì •ë³´ë¥¼ ë¬¸ìžì—´ë¡œ ë³€í™˜.
+			while ((line = bf.readLine()) != null) {
+				result = result.concat(line);
+				// System.out.println(line);
+			}
+
+			// ë¬¸ìžì—´ì„ JSONìœ¼ë¡œ íŒŒì‹±
+			JSONParser jsonParser = new JSONParser();
+			JSONObject jsonObj = (JSONObject) jsonParser.parse(result);
+
+			// ì˜¨ë„ ì¶œë ¥(ì ˆëŒ€ì˜¨ë„ë¼ì„œ ë³€í™˜ í•„ìš”)
+			JSONObject mainArray = (JSONObject) jsonObj.get("main");
+			double ktemp = Double.parseDouble(mainArray.get("temp").toString());
+			double temp = ktemp - 273.15;
+
+			val = Double.parseDouble(String.format("%.2f",temp));
+
+
+
+
+			bf.close();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
 		return val;
 	}
 
